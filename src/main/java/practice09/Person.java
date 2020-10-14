@@ -34,13 +34,7 @@ public class Person {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
-        return getAge() == person.getAge() &&
-                Objects.equals(getId(), person.getId()) &&
-                Objects.equals(getName(), person.getName());
+        return Objects.equals(getId(), person.getId());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName(), getAge());
-    }
 }
