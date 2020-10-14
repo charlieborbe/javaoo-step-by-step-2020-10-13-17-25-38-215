@@ -17,7 +17,11 @@ public class Person {
         return age;
     }
 
-    public String introduce(){
+    public String basicIntroduce(){
         return "My name is Tom. I am 21 years old.";
+    }
+
+    public String introduce(){
+        return basicIntroduce();
     }
 }
