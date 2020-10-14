@@ -17,13 +17,6 @@ public class Teacher extends Person{
     }
 
     public String introduce(){
-        String introduce;
-        if (getKlass() == null){
-            introduce = super.introduce()+ " I am a Teacher. I teach No Class.";
-        }
-        else {
-            introduce = super.introduce()+ " I am a Teacher. I teach Class 2.";
-        }
-        return introduce;
+        return getKlass() == null ? super.introduce()+ " I am a Teacher. I teach No Class." : super.introduce()+ " I am a Teacher. I teach Class 2.";
     }
 }
