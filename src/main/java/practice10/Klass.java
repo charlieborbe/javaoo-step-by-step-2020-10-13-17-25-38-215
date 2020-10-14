@@ -1,16 +1,14 @@
 package practice10;
 
-import java.util.Objects;
-
 public class Klass {
-    private Integer number;
+    private int number;
     private Student leader;
 
-    public Klass(Integer number) {
+    public Klass(int number) {
         this.number = number;
     }
 
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
 
@@ -18,12 +16,13 @@ public class Klass {
         return leader;
     }
 
-    public String assignLeader(Student student){
-//        return student.getName().equals("Tom") ?
-//                student.introduce()+" I am a Student. I am Leader of Class 2." :
-//                student.introduce();
-        return student.getKlass() == null ?
-                "It is not one of us." : student.introduce();
+    public void assignLeader(Student student){
+        if(this.number != student.getKlass().getNumber()) {
+            System.out.print("It is not one of us.\n");
+        }
+        else {
+            this.leader = student;
+        }
     }
 
     public void appendMember(Student student) {
@@ -34,17 +33,5 @@ public class Klass {
         return "Class " + number;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Klass)) return false;
-        Klass klass = (Klass) o;
-        return getNumber().equals(klass.getNumber()) &&
-                getLeader().equals(klass.getLeader());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getNumber(), getLeader());
-    }
 }

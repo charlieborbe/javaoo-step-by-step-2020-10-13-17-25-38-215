@@ -18,11 +18,11 @@ public class Student extends Person{
 
     public String introduce() {
         String messageResult;
-        if(this.klass.getLeader() == null){
+        if(klass.getLeader() == null){
             messageResult = super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
         }
         else {
-            messageResult = this.klass.getLeader().getName().equals("Tom") ?
+            messageResult = klass.getLeader().getName().equals("Tom") ?
                     super.introduce() + " I am a Student. I am Leader of " + klass.getDisplayName() + "." :
                     super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
         }
