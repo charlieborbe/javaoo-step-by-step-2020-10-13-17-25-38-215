@@ -16,10 +16,10 @@ public class Teacher extends Person{
         return klass;
     }
 
-
-
     public String introduce() {
-        return getKlass().getNumber() == null ? super.introduce()+ " I am a Teacher. I teach No Class." : super.introduce()+ " I am a Teacher. I teach Class 2.";
+        return getKlass().getNumber() == null ?
+                super.introduce()+ " I am a Teacher. I teach No Class." :
+                super.introduce()+ " I am a Teacher. I teach Class 2.";
     }
 
 
