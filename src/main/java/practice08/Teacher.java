@@ -1,7 +1,5 @@
 package practice08;
 
-import java.util.Objects;
-
 public class Teacher extends Person{
     Klass klass;
 
@@ -16,20 +14,6 @@ public class Teacher extends Person{
 
     public Klass getKlass() {
         return klass;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Teacher)) return false;
-        if (!super.equals(o)) return false;
-        Teacher teacher = (Teacher) o;
-        return getKlass().equals(teacher.getKlass());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getKlass());
     }
 
     public String introduce() {

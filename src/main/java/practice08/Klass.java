@@ -1,16 +1,14 @@
 package practice08;
 
-import java.util.Objects;
-
 public class Klass {
-    private Integer number;
+    private int number;
     private Student leader;
 
-    public Klass(Integer number) {
+    public Klass(int number) {
         this.number = number;
     }
 
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
 
@@ -18,25 +16,12 @@ public class Klass {
         return leader;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Klass)) return false;
-        Klass klass = (Klass) o;
-        return getNumber().equals(klass.getNumber()) &&
-                getLeader().equals(klass.getLeader());
+    public void setLeader(Student leader) {
+        this.leader = leader;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getNumber(), getLeader());
-    }
-
-    public String assignLeader(Student student){
-        return student.getName().equals("Tom") ?
-                student.introduce()+" I am a Student. I am Leader of Class 2." :
-                student.introduce();
-
+    public void assignLeader(Student student) {
+        this.leader = student;
     }
 
     public String getDisplayName(){

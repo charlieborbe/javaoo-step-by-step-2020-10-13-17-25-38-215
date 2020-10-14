@@ -8,12 +8,24 @@ public class Student extends Person{
         this.klass = klass;
     }
 
+    public void setKlass(Klass klass) {
+        this.klass = klass;
+    }
+
     public Klass getKlass() {
         return klass;
     }
 
-    @Override
     public String introduce() {
-        return super.introduce()+" I am a Student. I am at Class 2.";
+        String messageResult;
+        if(this.klass.getLeader() == null){
+            messageResult = super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
+        }
+        else {
+            messageResult = this.klass.getLeader().getName().equals("Tom") ?
+                    super.introduce() + " I am a Student. I am Leader of " + klass.getDisplayName() + "." :
+                    super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
+        }
+        return messageResult;
     }
 }

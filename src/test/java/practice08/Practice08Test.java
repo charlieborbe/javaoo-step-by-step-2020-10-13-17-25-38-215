@@ -44,12 +44,12 @@ public class Practice08Test {
         assertThat(klass.getDisplayName()).isEqualTo("Class 2");
     }
 
-//    @Test
-//    public void should_class_assign_a_leader() throws Exception {
-//        Student jerry = new Student(1, "Jerry", 8, klass);
-//        klass.assignLeader(jerry);
-//        assertThat(klass.getLeader()).isEqualTo(jerry);
-//    }
+    @Test
+    public void should_class_assign_a_leader() throws Exception {
+        Student jerry = new Student(1, "Jerry", 8, klass);
+        klass.assignLeader(jerry);
+        assertThat(klass.getLeader()).isEqualTo(jerry);
+    }
 
     @Test
     public void should_student_have_name_age_and_class_number() throws Exception {
