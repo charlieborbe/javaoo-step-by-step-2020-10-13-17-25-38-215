@@ -25,8 +25,8 @@ public class Person {
         return age;
     }
 
-    public String introduce(){
-        return "My name is Tom. I am 21 years old.";
+    public String introduce() {
+        return "My name is " + getName() + ". I am 21 years old.";
     }
 
     @Override
@@ -37,4 +37,8 @@ public class Person {
         return Objects.equals(getId(), person.getId());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }

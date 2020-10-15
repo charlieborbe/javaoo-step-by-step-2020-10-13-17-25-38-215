@@ -17,15 +17,9 @@ public class Student extends Person{
     }
 
     public String introduce() {
-        String messageResult;
-        if(klass.getLeader() == null){
-            messageResult = super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
-        }
-        else {
-            messageResult = klass.getLeader().getName().equals("Tom") ?
-                    super.introduce() + " I am a Student. I am Leader of " + klass.getDisplayName() + "." :
-                    super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
-        }
-        return messageResult;
+        boolean isKlassLeader = this.klass.getLeader() != null;
+        return isKlassLeader && this.klass.getLeader().equals(this) ?
+                super.introduce() + " I am a Student. I am Leader of " + klass.getDisplayName() + "." :
+                super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
     }
 }

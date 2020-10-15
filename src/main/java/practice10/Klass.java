@@ -16,11 +16,10 @@ public class Klass {
         return leader;
     }
 
-    public void assignLeader(Student student){
-        if(this.number != student.getKlass().getNumber()) {
+    public void assignLeader(Student student) {
+        if (this.number != student.getKlass().getNumber()) {
             System.out.print("It is not one of us.\n");
-        }
-        else {
+        } else {
             this.leader = student;
         }
     }
@@ -29,7 +28,7 @@ public class Klass {
         student.setKlass(this);
     }
 
-    public String getDisplayName(){
+    public String getDisplayName() {
         return "Class " + number;
     }
 

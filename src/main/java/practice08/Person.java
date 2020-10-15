@@ -33,7 +33,12 @@ public class Person {
         return Objects.equals(getId(), person.getId());
     }
 
-    public String introduce(){
-        return "My name is Tom. I am 21 years old.";
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
+    public String introduce() {
+        return "My name is " + getName() + ". I am 21 years old.";
     }
 }

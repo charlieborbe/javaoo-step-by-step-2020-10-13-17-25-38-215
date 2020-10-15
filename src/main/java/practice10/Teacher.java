@@ -1,10 +1,11 @@
 package practice10;
 
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
-public class Teacher extends Person{
-    Klass klass;
-    LinkedList<Klass> classes;
+public class Teacher extends Person {
+    private Klass klass;
+    private LinkedList<Klass> classes;
 
     public Teacher(Integer id, String name, int age, LinkedList<Klass> classes) {
         super(id, name, age);
@@ -28,30 +29,29 @@ public class Teacher extends Person{
     }
 
     public String introduce() {
-        String introduceMessage;
-        if(getClasses() != null) {
-            introduceMessage = super.introduce() + " I am a Teacher. I teach Class 2, 3.";
-        }
-        else {
-            introduceMessage = super.introduce() + " I am a Teacher. I teach No Class.";
-        }
-        return introduceMessage;
+            return getClasses() != null ?
+                    super.introduce() + " I am a Teacher. I teach Class "+getClassNumbers()+".":
+                    super.introduce() + " I am a Teacher. I teach No Class.";
     }
 
-    public String introduceWith(Student student){
-        String introduceWithMessage;
-        if(getClasses().contains(student.getKlass())){
-            introduceWithMessage = super.introduce()+" I am a Teacher. I teach "+student.getName()+"." ;
-        }
-        else{
-            introduceWithMessage = super.introduce()+" I am a Teacher. I don't teach "+student.getName()+".";
-        }
-        return introduceWithMessage;
+    public String introduceWith(Student student) {
+        return isTeaching(student) ?
+                super.introduce() + " I am a Teacher. I teach " + student.getName() + "." :
+                super.introduce() + " I am a Teacher. I don't teach " + student.getName() + ".";
     }
 
-    public Boolean isTeaching(Student student){
-        Boolean isTeachingBool =  getClasses().contains(student.getKlass()) ? Boolean.TRUE : Boolean.FALSE;
-        return isTeachingBool;
+    public Boolean isTeaching(Student student) {
+        return isIn(classes, student);
     }
 
+    private String getClassNumbers(){
+        return classes.stream()
+                .map(Klass::getNumber)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+    }
+
+    public Boolean isIn(LinkedList<Klass> linkedList, Student student) {
+        return linkedList.contains(student.getKlass());
+    }
 }

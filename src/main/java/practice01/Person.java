@@ -3,6 +3,7 @@ package practice01;
 public class Person {
     private String name;
     private int age;
+
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
@@ -16,7 +17,7 @@ public class Person {
         return age;
     }
 
-    public String introduce(){
-        return "My name is Tom. I am 21 years old.";
+    public String introduce() {
+        return "My name is " + getName() + ". I am 21 years old.";
     }
 }
